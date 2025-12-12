@@ -1,0 +1,218 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Kanban board styles */
+.kanban-column {
+  min-height: 500px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 0 8px;
+}
+
+.kanban-card {
+  margin-bottom: 12px;
+  cursor: grab;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.kanban-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.kanban-card.dragging {
+  cursor: grabbing;
+  transform: rotate(5deg);
+}
+
+/* Priority colors */
+.priority-high {
+  border-left: 4px solid #f44336;
+}
+
+.priority-medium {
+  border-left: 4px solid #ff9800;
+}
+
+.priority-low {
+  border-left: 4px solid #4caf50;
+}
+
+/* Status colors */
+.status-pending {
+  background-color: #fff3e0;
+}
+
+.status-in-progress {
+  background-color: #e3f2fd;
+}
+
+.status-review {
+  background-color: #f3e5f5;
+}
+
+.status-completed {
+  background-color: #e8f5e8;
+}
+
+/* Animation classes */
+.fade-in {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Dashboard widgets */
+.dashboard-widget {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dashboard-widget:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Form styles */
+.form-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.auth-form {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Loading spinner */
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+}
+
+/* Notification styles */
+.notification-item {
+  border-left: 4px solid #2196f3;
+  transition: background-color 0.2s ease;
+}
+
+.notification-item:hover {
+  background-color: #f5f5f5;
+}
+
+.notification-unread {
+  background-color: #e3f2fd;
+  font-weight: 500;
+}
+
+/* Table styles */
+.data-table {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.table-header {
+  background-color: #f5f5f5;
+  font-weight: 600;
+}
+
+/* Chart container */
+.chart-container {
+  background: white;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+  .kanban-column {
+    margin: 8px 0;
+  }
+  
+  .form-container {
+    padding: 1rem;
+  }
+  
+  .dashboard-widget {
+    margin-bottom: 1rem;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .kanban-column {
+    background-color: #2d2d2d;
+  }
+  
+  .notification-item {
+    border-left-color: #90caf9;
+  }
+  
+  .chart-container {
+    background: #1e1e1e;
+  }
+}
